@@ -9,6 +9,6 @@
       <ion-input type="password" [(ngModel)]="login.password" name="password"></ion-input>
     </ion-item>
     <ion-button expand="full" type="submit">Entrar</ion-button>
-    <ion-button expand="full" color="secondary" type="button">Cadastrar</ion-button>
+    <ion-button expand="full" color="secondary" type="button" [routerLink]="['/cadastro']">Cadastrar</ion-button>
   </form>
 </ion-content>

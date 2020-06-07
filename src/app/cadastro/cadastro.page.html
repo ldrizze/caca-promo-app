@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form (ngSubmit)="cadastrar()">
+    <ion-item>
+      <ion-label position="floating" [color]="(!!msgs && !!msgs.nome) ? 'danger' : null">
+        Nome completo
+        <small *ngIf="!!msgs && !!msgs.nome">({{msgs.nome}})</small>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="cadastro.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" [color]="(!!msgs && !!msgs.usuario) ? 'danger' : null">
+        Nome de usuário
+        <small *ngIf="!!msgs && !!msgs.usuario">({{msgs.usuario}})</small>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="cadastro.usuario" name="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" [color]="(!!msgs && !!msgs.email) ? 'danger' : null">
+        E-mail
+        <small *ngIf="!!msgs && !!msgs.email">({{msgs.email}})</small>
+      </ion-label>
+      <ion-input type="email" [(ngModel)]="cadastro.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" [color]="(!!msgs && !!msgs.senha) ? 'danger' : null">
+        Senha
+        <small *ngIf="!!msgs && !!msgs.senha">({{msgs.senha}})</small>
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="cadastro.senha" name="senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" [color]="(!!msgs && !!msgs.resenha) ? 'danger' : null">
+        Repita a senha
+        <small *ngIf="!!msgs && !!msgs.resenha">({{msgs.resenha}})</small>
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="cadastro.resenha" name="senha"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Cadastrar</ion-button>
+    <ion-button expand="full" color="danger" type="button"
+      [routerLink]="['/login']" routerDirection="backward">
+      Cancelar
+  </ion-button>
+  </form>
 </ion-content>
