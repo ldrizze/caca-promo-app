@@ -42,7 +42,7 @@ export class CadastroPage implements OnInit {
     this.loading = await this.loadingController.create({
       message: 'Cadastrando, por favor, aguarde...'
     });
-    this.loading.present();
+    await this.loading.present();
   }
 
   async presentAlert() {
@@ -52,7 +52,7 @@ export class CadastroPage implements OnInit {
       message: 'Houver um erro ao realizar seu cadastro, por favor, reveja os dados inseridos.',
       buttons: ['OK']
     });
-    this.alert.present();
+    await this.alert.present();
   }
 
   async cadastrar() {

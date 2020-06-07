@@ -11,7 +11,7 @@ import { SessionService } from '../api/session.service';
 })
 export class LoginPage implements OnInit {
 
-  login = {
+  public login = {
     usuario: null,
     senha: null
   };
@@ -25,9 +25,7 @@ export class LoginPage implements OnInit {
     public alertController: AlertController,
     public loadingController: LoadingController,
     public sessionService: SessionService
-  ) {
-    this.menu.enable(false, 'main');
-  }
+  ) { }
 
   async presentLoading() {
     this.loading = await this.loadingController.create({
@@ -49,15 +47,25 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  async logForm() {
+  ionViewWillEnter() {
+    this.menu.enable(false, 'main');
+  }
+
+  async loginForm() {
     try {
       await this.presentLoading();
       await this.sessionService.login(this.login.usuario, this.login.senha);
       this.menu.enable(true, 'main');
       this.router.navigateByUrl('/home');
+      this.login = {
+        usuario: null,
+        senha: null
+      };
     } catch (error) {
       console.log(error);
       await this.presentAlert();
+    } finally {
+      this.loading.dismiss();
     }
   }
 }

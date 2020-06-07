@@ -30,6 +30,12 @@ export class SessionService {
       method: 'GET',
       url: `${this.baseUrl}/session/me`
     });
+
+    this.user = data;
+  }
+
+  getUser() {
+    return this.user;
   }
 
   logout() {
