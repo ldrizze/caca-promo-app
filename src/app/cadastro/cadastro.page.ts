@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../api/session.service';
-import { LoadingController, NavController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
+import { LoadingController, NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cadastro',
