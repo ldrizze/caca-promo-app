@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { SessionService } from '../api/session.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginPage implements OnInit {
     private menu: MenuController,
     public alertController: AlertController,
     public loadingController: LoadingController,
-    public sessionService: SessionService
+    public sessionService: SessionService,
+    private http: HttpClient
   ) { }
 
   async presentLoading() {
@@ -62,7 +64,7 @@ export class LoginPage implements OnInit {
         senha: null
       };
     } catch (error) {
-      console.log(error);
+      console.error(error);
       await this.presentAlert();
     } finally {
       this.loading.dismiss();

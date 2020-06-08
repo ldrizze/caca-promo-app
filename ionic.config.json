@@ -1,5 +1,7 @@
 {
   "name": "cacaPromo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

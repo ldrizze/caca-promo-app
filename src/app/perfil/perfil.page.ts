@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../api/session.service';
+
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  public perfil = {};
+
+  constructor(
+    private sessionService: SessionService
+  ) { }
 
   ngOnInit() {
+  }
+
+  async ionViewWillEnter() {
+    this.perfil = await this.sessionService.getUser();
   }
 
 }

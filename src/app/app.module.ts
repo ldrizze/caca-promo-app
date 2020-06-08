@@ -14,11 +14,12 @@ import { RestaurantesService } from './api/restaurantes.service';
 import { PromosService } from './api/promos.service';
 import { FavoritosService } from './api/favoritos.service';
 import { TipoComidasService } from './api/tipo-comidas.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
