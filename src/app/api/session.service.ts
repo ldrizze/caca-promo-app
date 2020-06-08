@@ -14,7 +14,7 @@ export class SessionService {
     if (!this.token) {
       this.token = null;
     } else {
-      this.getUser();
+      this.getUserInfo();
     }
   }
 
@@ -23,17 +23,17 @@ export class SessionService {
   }
 
   async login(usuario, senha) {
-    const data: any = await axios.post(`${BASE_URL}/session`, {
+    const result = await axios.post(`${BASE_URL}/session`, {
       usuario, senha
     });
-    if (data && data.token) {
-      this.token = data.token;
+    if (result && result.data.token) {
+      this.token = result.data.token;
       localStorage.setItem('token', this.token);
     }
   }
 
   async getUserInfo() {
-    const data = await axios({
+    const result = await axios({
       headers: {
         Authorization: this.token
       },
@@ -41,11 +41,18 @@ export class SessionService {
       url: `${BASE_URL}/session/me`
     });
 
-    this.user = data;
+    this.user = result.data;
   }
 
-  getUser() {
+  async getUser() {
+    if (!this.user) {
+      await this.getUserInfo();
+    }
     return this.user;
+  }
+
+  getToken() {
+    return this.token;
   }
 
   logout() {

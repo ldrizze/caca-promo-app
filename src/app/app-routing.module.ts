@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'restaurantes',
     loadChildren: () => import('./restaurantes/restaurantes.module').then( m => m.RestaurantesPageModule)
   },
+  {
+    path: 'favoritos',
+    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
 ];
 
 @NgModule({

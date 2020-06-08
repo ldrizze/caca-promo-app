@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SessionService } from './api/session.service';
 import { RestaurantesService } from './api/restaurantes.service';
 import { PromosService } from './api/promos.service';
+import { FavoritosService } from './api/favoritos.service';
+import { TipoComidasService } from './api/tipo-comidas.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,8 @@ import { PromosService } from './api/promos.service';
     SessionService,
     RestaurantesService,
     PromosService,
+    FavoritosService,
+    TipoComidasService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
