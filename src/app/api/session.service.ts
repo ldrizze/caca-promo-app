@@ -1,24 +1,34 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { BASE_URL } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-  private baseUrl = 'http://localhost:3000';
   private token: string;
   private user: any;
 
+  constructor() {
+    this.token = localStorage.getItem('token');
+    if (!this.token) {
+      this.token = null;
+    } else {
+      this.getUser();
+    }
+  }
+
   async cadastrar(data) {
-    return axios.post(`${this.baseUrl}/users`, data);
+    return axios.post(`${BASE_URL}/users`, data);
   }
 
   async login(usuario, senha) {
-    const data: any = await axios.post(`${this.baseUrl}/session`, {
+    const data: any = await axios.post(`${BASE_URL}/session`, {
       usuario, senha
     });
     if (data && data.token) {
       this.token = data.token;
+      localStorage.setItem('token', this.token);
     }
   }
 
@@ -28,7 +38,7 @@ export class SessionService {
         Authorization: this.token
       },
       method: 'GET',
-      url: `${this.baseUrl}/session/me`
+      url: `${BASE_URL}/session/me`
     });
 
     this.user = data;

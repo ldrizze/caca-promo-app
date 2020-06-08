@@ -1,11 +1,16 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Restaurante</ion-card-subtitle>
-    <ion-card-title>Promoção % desconto</ion-card-title>
+    <ion-card-subtitle>{{ promo.restaurante.nome }}</ion-card-subtitle>
+    <ion-card-title>{{ promo.nome }}</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    Desconto de 20% em todos os pratos ao comprar 20 reais! <br>
-    Venha aproveitar :b
+    <p>{{ promo.descricao }}</p>
+    <small>De: {{ promo.data_inicio }} à {{ promo.data_fim }}</small>
+    <br>
+    <ion-button float-right expand="full"
+      color="success" slot="end" size="medium">
+        Resgatar promoção
+    </ion-button>
   </ion-card-content>
 </ion-card>

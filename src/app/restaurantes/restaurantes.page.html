@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Restaurantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let restaurante of restaurantes">
+      <ion-label>
+        <h1>{{ restaurante.nome }}</h1>
+        <h2>{{ restaurante.endereco }}</h2>
+        <p>Número de promoções: {{ restaurante.numero_de_promocoes }}</p>
+        <p class="score" (click)="aoClicarNoCoracaozinho($event)">
+          <ion-icon name="heart"></ion-icon>&nbsp;
+          <ion-icon name="heart"></ion-icon>&nbsp;
+          <ion-icon name="heart"></ion-icon>&nbsp;
+          <ion-icon name="heart"></ion-icon>&nbsp;
+          <ion-icon name="heart"></ion-icon>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

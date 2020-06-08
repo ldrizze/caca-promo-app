@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { SessionService } from './api/session.service';
+import { RestaurantesService } from './api/restaurantes.service';
+import { PromosService } from './api/promos.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,8 @@ import { SessionService } from './api/session.service';
     StatusBar,
     SplashScreen,
     SessionService,
+    RestaurantesService,
+    PromosService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

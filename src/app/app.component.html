@@ -7,14 +7,26 @@
     </ion-header>
     <ion-content>
       <ion-list>
+        <ion-menu-toggle [routerLink]="['/home']">
+          <ion-item>
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label>Promoções</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         <ion-item>
           <ion-icon slot="start" name="person-circle"></ion-icon>
           <ion-label>Perfil</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon slot="start" name="pricetags"></ion-icon>
-          <ion-label>Promoções</ion-label>
+          <ion-label>Minhas Promoções</ion-label>
         </ion-item>
+        <ion-menu-toggle [routerLink]="['/restaurantes']">
+          <ion-item>
+            <ion-icon slot="start" name="fast-food"></ion-icon>
+            <ion-label>Restaurantes</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         <ion-item>
           <ion-icon slot="start" name="heart"></ion-icon>
           <ion-label>Favoritos</ion-label>

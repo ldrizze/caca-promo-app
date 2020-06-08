@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-promocao-item',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./promocao-item.component.scss'],
 })
 export class PromocaoItemComponent implements OnInit {
+
+  @Input() promo: any;
 
   constructor() { }
 
